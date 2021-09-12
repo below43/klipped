@@ -1,13 +1,13 @@
-ion-menu-button {
-  color: var(--ion-color-primary);
+ion-toolbar {
+  --background: transparent;
 }
 
 #container {
   text-align: center;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
+  left: 10%;
+  right: 10%;
+  top: 25%;
   transform: translateY(-50%);
 }
 

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { ScratchpadPageRoutingModule } from './scratchpad-routing.module';
 
-import { FolderPage } from './folder.page';
+import { ScratchpadPage } from './scratchpad.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    ScratchpadPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [ScratchpadPage]
 })
-export class FolderPageModule {}
+export class ScratchpadPageModule {}

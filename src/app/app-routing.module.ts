@@ -4,12 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    loadChildren: () => import('./scratchpad/scratchpad.module').then( m => m.ScratchpadPageModule)
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'scratchpad',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 
