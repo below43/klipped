@@ -3,10 +3,11 @@ ion-toolbar {
 }
 
 #container {
-  margin-top: 20px;
   text-align: center;
   width: 90%;
-  margin: 5% 20px;
+  max-width: 550px;
+  text-align: left;
+  margin: 20px auto 0px auto;
 }
 
 #container strong {
@@ -18,7 +19,6 @@ ion-toolbar {
   font-size: 16px;
   line-height: 22px;
   color: #8c8c8c;
-  margin: 0;
 }
 
 #container a {
