@@ -26,7 +26,10 @@ export class ScratchpadPage implements OnInit {
   }
 
   setTitle(ev:string) {
-	var title = (ev)?ev.trim().substring(0,60):" No content"
-	this.titleService.setTitle(`Klipped - "${title}...`);
+  	var title = (ev)?ev.trim().substring(0,60):" No content";
+  	if (title.startsWith('"')) {
+  		title = title.substring(1);
+  	}
+  	this.titleService.setTitle(`Klipped – "${title}...`);
   }
 }
