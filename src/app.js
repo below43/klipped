@@ -162,7 +162,7 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
     if (!title) {
       document.title = 'Klipped';
     } else {
-      document.title = `Klipped - ${title}...`;
+      document.title = `${title}...`;
     }
   }
 
