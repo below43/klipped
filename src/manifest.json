@@ -16,7 +16,7 @@
   },
   "icons": [
     {
-      "src": "assets/icon/logo.png",
+      "src": "assets/icon/icon.png",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
@@ -31,7 +31,7 @@
       "url": "/",
       "icons": [
         {
-          "src": "assets/icon/logo.png",
+          "src": "assets/icon/icon.png",
           "sizes": "1024x1024"
         }
       ]
