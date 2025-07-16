@@ -11,16 +11,72 @@
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
+  
+  <!-- Theme colors for light and dark modes -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+  <link rel="icon" type="image/png" href="assets/icon/logo.png" />
+  <link rel="stylesheet" href="style.css" />
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
 </head>
 
 <body>
-  <app-root></app-root>
+  <div id="app">
+    <!-- Main editor area -->
+    <div id="editor-container">
+      <textarea 
+        id="editor" 
+        placeholder="Klipped."
+        spellcheck="false"></textarea>
+    </div>
+
+    <!-- Info button -->
+    <button id="info-button" class="fab-button" aria-label="About">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="m12 16v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="m12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- About modal -->
+    <div id="about-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>About</h2>
+          <button id="close-modal" class="close-button" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="about-content">
+            <h1>Klipped.app is a minimalist plain text scratchpad designed with privacy in mind.</h1>
+            <p>All data is stored in local browser storage (local to your device), and has no adverts, profiling or tracking analytics.</p>
+            <h2>The simple plain text app.</h2>
+            <p>Klipped has been lovingly crafted to be the app you always needed by your side.</p>
+            <p>It's a virtual post-it note. Store your ideas, or paste content from your clipboard. Delete the text when you're
+              done. No clutter of files being saved, and no need to worry about saving your text - it will be there next time
+              you open the app.</p>
+            <hr style="border-width: 1px;"/>
+            <p>Also available for iPad, iPhone and MacOS. See <a target="_blank" href="https://klipped.com">klipped.com</a> for more information.</p>
+            <p>Built by <a target="_blank" href="https://waka.nz">Waka apps</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 
 </html>

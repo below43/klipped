@@ -1,0 +1,40 @@
+{
+  "name": "Klipped Scratchpad",
+  "short_name": "Klipped",
+  "description": "Minimalist browser-based notes app with client-side data privacy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffd100",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en",
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  },
+  "icons": [
+    {
+      "src": "assets/icon/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Klipped scratchpad",
+      "short_name": "Launch klipped",
+      "description": "Launch klipped scratchpad",
+      "url": "/",
+      "icons": [
+        {
+          "src": "assets/icon/logo.png",
+          "sizes": "1024x1024"
+        }
+      ]
+    }
+  ]
+}

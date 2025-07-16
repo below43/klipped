@@ -1,0 +1,311 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+/* CSS Variables for theming */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --editor-bg: #ffffff;
+  --editor-text: #000000;
+  --button-bg: rgba(0, 0, 0, 0.1);
+  --button-hover: rgba(0, 0, 0, 0.2);
+  --modal-bg: #ffffff;
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --border-color: #e0e0e0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --editor-bg: #000000;
+    --editor-text: #ffffff;
+    --button-bg: rgba(255, 255, 255, 0.1);
+    --button-hover: rgba(255, 255, 255, 0.2);
+    --modal-bg: #1a1a1a;
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --border-color: #333333;
+  }
+}
+
+/* Main app container */
+#app {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Editor container */
+#editor-container {
+  flex: 1;
+  position: relative;
+}
+
+/* Main textarea */
+#editor {
+  width: 100%;
+  height: 100%;
+  background-color: var(--editor-bg);
+  color: var(--editor-text);
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 20px;
+  font-size: 14px;
+  font-family: Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+#editor:focus {
+  opacity: 1;
+}
+
+#editor::placeholder {
+  color: var(--text-color);
+  opacity: 0.3;
+}
+
+/* Floating Action Button */
+.fab-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--button-bg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.fab-button:hover {
+  opacity: 0.8;
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.fab-button svg {
+  color: var(--text-color);
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 0 24px;
+  margin-bottom: 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  opacity: 1;
+  background-color: var(--button-bg);
+}
+
+.modal-body {
+  padding: 20px 24px 24px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* About content styles */
+#about-content {
+  text-align: left;
+  line-height: 1.6;
+}
+
+#about-content h1 {
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+#about-content h2 {
+  font-size: 18px;
+  margin: 20px 0 12px 0;
+  font-weight: 600;
+}
+
+#about-content p {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+#about-content a {
+  color: #666;
+  text-decoration: none;
+}
+
+#about-content a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+#about-content a:hover {
+  opacity: 1;
+}
+
+#about-content hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 20px 0;
+}
+
+#about-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 85%;
+    margin: 20px;
+  }
+  
+  .modal-header,
+  .modal-body {
+    padding: 16px 20px;
+  }
+  
+  #about-content h1 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  #about-content h2 {
+    font-size: 16px;
+  }
+  
+  #about-content p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  #editor {
+    padding: 16px;
+    font-size: 14px;
+  }
+  
+  .fab-button {
+    bottom: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Focus and accessibility */
+.fab-button:focus,
+.close-button:focus {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --button-bg: rgba(0, 0, 0, 0.3);
+    --button-hover: rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --button-bg: rgba(255, 255, 255, 0.3);
+      --button-hover: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
