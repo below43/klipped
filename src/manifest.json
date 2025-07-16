@@ -16,7 +16,7 @@
   },
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
+      "src": "assets/icon/logo.png",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
