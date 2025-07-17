@@ -45,7 +45,7 @@ Klipped has been lovingly crafted to be the app you always needed by your side. 
 
 This PWA version has been rewritten in pure JavaScript for maximum simplicity and performance.
 
-The app is avilable here: [klipped.app](https://klipped.app)
+The app is available here: [klipped.app](https://klipped.app)
 
 ## Other Platforms
 
