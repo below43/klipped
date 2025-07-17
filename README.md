@@ -44,3 +44,14 @@ src/
 Klipped has been lovingly crafted to be the app you always needed by your side. It's a virtual post-it note where you can store ideas, paste content from your clipboard, and delete text when you're done. No clutter of files being saved, and no need to worry about saving your text - it will be there next time you open the app.
 
 This PWA version has been rewritten in pure JavaScript for maximum simplicity and performance.
+
+The app is avilable here: [klipped.app](https://klipped.app)
+
+## Other Platforms
+
+Klipped is also available for other platforms:
+
+- **iOS & iPadOS**: [Download from App Store](https://klipped.com/iphone-and-ipad)
+- **macOS**: [Download from Mac App Store](https://klipped.com/macos) 
+
+Visit [klipped.com](https://klipped.com) for more information about all available platforms.

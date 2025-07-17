@@ -38,9 +38,6 @@ class KlippedApp {
     // Setup event listeners
     this.setupEventListeners();
 
-    // Setup PWA features
-    this.setupPWA();
-
     // Update title initially
     this.updateTitle();
   }
@@ -192,43 +189,6 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
     if (window.history.state === 'modal') {
       window.history.back();
     }
-  }
-
-  setupPWA() {
-    // Register service worker if available
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then((registration) => {
-            console.log('SW registered: ', registration);
-          })
-          .catch((registrationError) => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
-
-    // Handle app install prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      // Could show install button here
-    });
-
-    // Handle app installed
-    window.addEventListener('appinstalled', () => {
-      console.log('PWA was installed');
-    });
-
-    // Handle online/offline status
-    window.addEventListener('online', () => {
-      console.log('App is online');
-    });
-
-    window.addEventListener('offline', () => {
-      console.log('App is offline');
-    });
   }
 
   // Public methods for potential external use
