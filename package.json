@@ -1,12 +1,10 @@
 {
   "name": "klipped",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "author": "Waka Apps",
   "homepage": "https://klipped.app/",
   "scripts": {
     "start": "python3 -m http.server 8080 --directory src",
-    "build": "cp -r src/* www/",
-    "serve": "python3 -m http.server 8080 --directory www"
   },
   "private": true,
   "dependencies": {},
