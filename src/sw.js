@@ -1,7 +1,7 @@
 //version 1.0.6
 
 // Klipped PWA Service Worker
-const CACHE_NAME = 'klipped-v1.0.6';
+const CACHE_NAME = 'klipped-v1.0.7';
 const urlsToCache = [
   '/',
   '/index.html',
