@@ -4,7 +4,7 @@
   "author": "Waka Apps",
   "homepage": "https://klipped.app/",
   "scripts": {
-    "start": "python3 -m http.server 8080 --directory src",
+    "start": "python3 -m http.server 8080 --directory src"
   },
   "private": true,
   "dependencies": {},
