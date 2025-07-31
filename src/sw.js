@@ -1,4 +1,4 @@
-//version 1.0.9
+//version 1.0.10
 
 // Klipped PWA Service Worker
 const CACHE_NAME = 'klipped-v1.0.7';
