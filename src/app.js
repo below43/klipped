@@ -7,7 +7,7 @@ class KlippedApp {
     this.closeButton = null;
     this.storageKey = 'klipped';
     this.hasUsedAppKey = 'klipped-has-used';
-    
+
     this.init();
   }
 
@@ -37,6 +37,9 @@ class KlippedApp {
 
     // Setup event listeners
     this.setupEventListeners();
+
+    // Register service worker if available
+    this.setupServiceWorker();
 
     // Update title initially
     this.updateTitle();
@@ -71,7 +74,7 @@ class KlippedApp {
       if (e.key === 'Escape' && this.modal.classList.contains('show')) {
         this.hideModal();
       }
-      
+
       // Keyboard shortcuts
       if (e.metaKey || e.ctrlKey) {
         switch (e.key) {
@@ -112,10 +115,24 @@ class KlippedApp {
     });
   }
 
+  setupServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  }
+
   loadContent() {
     const savedContent = localStorage.getItem(this.storageKey);
     const hasUsedApp = localStorage.getItem(this.hasUsedAppKey);
-    
+
     if (savedContent) {
       this.editor.value = savedContent;
     } else if (!hasUsedApp) {
@@ -123,7 +140,7 @@ class KlippedApp {
       const welcomeText = `Klipped is a simple, privacy-oriented scratchpad.
 
 It's like the back of your hand. Write ideas down. Paste snippets of text. Delete when you're done. `;
-      
+
       this.editor.value = welcomeText;
       this.saveContent(welcomeText);
       // Mark that the user has now used the app
@@ -139,7 +156,7 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
       localStorage.setItem(this.hasUsedAppKey, 'true');
     } catch (error) {
       console.error('Failed to save content:', error);
-      
+
       // Handle quota exceeded error
       if (error.name === 'QuotaExceededError') {
         console.warn('LocalStorage quota exceeded. Content may not be saved.');
@@ -151,11 +168,11 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
   updateTitle(content = null) {
     const text = content || this.editor.value || '';
     let title = text.trim().substring(0, 60);
-    
+
     if (title.startsWith('"')) {
       title = title.substring(1);
     }
-    
+
     if (!title) {
       document.title = 'Klipped';
     } else {
@@ -166,7 +183,7 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
   showModal() {
     this.modal.classList.add('show');
     document.body.style.overflow = 'hidden';
-    
+
     // Focus the close button for accessibility
     setTimeout(() => {
       this.closeButton.focus();
@@ -181,7 +198,7 @@ It's like the back of your hand. Write ideas down. Paste snippets of text. Delet
   hideModal() {
     this.modal.classList.remove('show');
     document.body.style.overflow = '';
-    
+
     // Focus the info button
     this.infoButton.focus();
 
